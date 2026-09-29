@@ -1,0 +1,10 @@
+[package]
+name = "votre-pseudo/robloxpart"
+version = "0.1.0"
+description = "Site d'investigation independant Robloxpart"
+
+[dependencies]
+"wasmer/static-web-server" = "^1"
+
+[fs]
+public = "public"

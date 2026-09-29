@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robloxpart | Percussions, taser et détentions arbitraires à Strasbourg</title>
+    <style>
+        :root {
+            --red-mediapart: #cc0000;
+            --dark-red: #990000;
+            --text-main: #1e1e1e;
+            --text-muted: #555555;
+            --bg-body: #f5f5f5;
+            --bg-card: #ffffff;
+            --border-light: #e0e0e0;
+            --font-serif: "Georgia", "Times New Roman", serif;
+            --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--red-mediapart);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .logo-main {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--red-mediapart);
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-status {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .sub-btn {
+            background-color: var(--red-mediapart);
+            color: #fff;
+            padding: 8px 16px;
+            font-weight: bold;
+            font-size: 13px;
+            text-decoration: none;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            overflow-x: auto;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        nav a.active {
+            color: var(--red-mediapart);
+            border-bottom: 2px solid var(--red-mediapart);
+            padding-bottom: 2px;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 36px;
+        }
+
+        article {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 36px;
+        }
+
+        .dossier-tag {
+            color: var(--red-mediapart);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        h1.article-title {
+            font-family: var(--font-serif);
+            font-size: 34px;
+            line-height: 1.25;
+            font-weight: 800;
+            margin-bottom: 18px;
+            color: #111;
+        }
+
+        .article-chapo {
+            font-family: var(--font-serif);
+            font-size: 19px;
+            line-height: 1.5;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--red-mediapart);
+            padding-left: 16px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 10px 0;
+            margin-bottom: 28px;
+        }
+
+        .article-body p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .article-body h2 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            margin: 32px 0 16px 0;
+            color: #111;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 6px;
+        }
+
+        figure.article-media {
+            margin: 28px 0;
+            border: 1px solid var(--border-light);
+            background-color: #fafafa;
+        }
+
+        figure.article-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        figcaption.article-caption {
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.45;
+            border-top: 1px solid var(--border-light);
+            font-style: italic;
+        }
+
+        figcaption.article-caption strong {
+            font-style: normal;
+            color: #111;
+        }
+
+        .evidence-card {
+            background-color: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 5px solid #222;
+            padding: 16px 20px;
+            margin: 24px 0;
+        }
+
+        .evidence-card h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .evidence-card p {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: #444;
+        }
+
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-widget {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 24px;
+        }
+
+        .widget-title {
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--red-mediapart);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .alert-box {
+            background-color: #fff4f4;
+            border: 1px solid #ffcccc;
+            padding: 16px;
+            border-radius: 2px;
+        }
+
+        .alert-box h3 {
+            color: var(--red-mediapart);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .alert-box p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .feed-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .feed-item:last-child {
+            border-bottom: none;
+        }
+
+        .feed-time {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--red-mediapart);
+        }
+
+        .feed-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 4px;
+            color: #222;
+            text-decoration: none;
+            display: block;
+        }
+
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 32px 24px;
+            margin-top: 48px;
+            font-size: 13px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 850px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="logo-box">
+            <span class="logo-main">Robloxpart</span>
+            <span class="logo-sub">Enquête &amp; Libertés</span>
+        </div>
+        <div class="header-status">Édition spéciale • Alsace</div>
+        <a href="#alerte" class="sub-btn">Transmettre une preuve</a>
+    </div>
+    <nav>
+        <a href="#" class="active">À la une</a>
+        <a href="#">Gendarmerie &amp; Justice</a>
+        <a href="#">Violences d'État</a>
+        <a href="#">Documents confidentiels</a>
+        <a href="#">Le Club</a>
+    </nav>
+</header>
+
+<div class="main-container">
+    <main>
+        <article>
+            <span class="dossier-tag">Enquête exclusive • Strasbourg</span>
+            <h1 class="article-title">Taser au sol, percussions motorisées et arrestations punitives : la dérive violente des gendarmes de Strasbourg</h1>
+            <p class="article-chapo">
+                Images accablantes, témoignages recoupés et pratiques illégales : Robloxpart dévoile les agissements d’une brigade qui neutralise des passants à l’aide de pare-chocs de patrouille, abuse de pistolets à impulsion électrique et systématise les privations arbitraires de liberté.
+            </p>
+
+            <div class="article-meta">
+                <div>Par <strong>La rédaction de Robloxpart</strong></div>
+                <div>Publié le 29 septembre • Temps de lecture : 7 min</div>
+            </div>
+
+            <div class="article-body">
+                <p>
+                    À Strasbourg, les patrouilles de la Gendarmerie Nationale ne se contentent plus de faire respecter l’ordre public : elles imposent un régime de coercition immédiate dénué de toute proportionnalité. Depuis plusieurs semaines, les signalements concordants décrivent un même mode opératoire où l'emploi des armes et des véhicules de dotation s'affranchit de toute règle légale.
+                </p>
+
+                <h2>1. Des décharges de pistolet à impulsion électrique sur des corps inertes</h2>
+                <p>
+                    Le premier volet de notre enquête s’appuie sur un document photographique irréfutable. Alors qu'un citoyen a déjà été projeté au sol sans opposer la moindre résistance physique, deux militaires en tenue de dotation s'acharnent à bout portant.
+                </p>
+
+                <figure class="article-media">
+                    <img src="https://files.catbox.moe/bhgmvw.png" alt="Usage disproportionné du taser sur une personne au sol par la Gendarmerie à Strasbourg">
+                    <figcaption class="article-caption">
+                        <strong>Document 1 :</strong> Un gendarme en tenue d'intervention applique une décharge électrique directe sur un suspect plaqué face contre terre, sous le regard d'un second militaire armé. (Photo transmise à Robloxpart)
+                    </figcaption>
+                </figure>
+
+                <p>
+                    L'usage de l'impulsion électrique incapacitante n’intervient pas ici pour neutraliser une menace létale ou un assaillant armé, mais comme un supplice de contrainte corporelle immédiate. Les décharges répétées contre un individu désarmé et maintenu au niveau des jambes violent directement les critères stricts de stricte nécessité et de proportionnalité fixés par la loi.
+                </p>
+
+                <h2>2. Des véhicules sérigraphiés employés pour percuter les suspects</h2>
+                <p>
+                    La dangerosité monte encore d'un cran lors des opérations de traque en secteur urbain. Les équipages n'hésitent plus à transformer leurs véhicules d'intervention rapide et SUV en béliers pour faucher les personnes au sol ou en fuite à pied.
+                </p>
+
+                <figure class="article-media">
+                    <img src="https://files.catbox.moe/r7d196.png" alt="Véhicule de gendarmerie percutant un suspect à terre">
+                    <figcaption class="article-caption">
+                        <strong>Document 2 :</strong> À Strasbourg, un break d'intervention de la Gendarmerie percute de plein fouet un individu projeté sur la chaussée, calandre braquée sur le thorax. (Photo transmise à Robloxpart)
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Sur ce cliché authentifié par notre rédaction, la calandre du véhicule officiel s'arrête littéralement au contact direct de la victime allongée sur le bitume. L’utilisation répétée d’engins motorisés de deux tonnes pour bloquer des corps humains représente un danger de mort immédiat et constitue une infraction pénale majeure d'atteinte volontaire à l'intégrité physique avec arme par destination.
+                </p>
+
+                <div class="evidence-card">
+                    <h4>Rapport de constatation matérielle</h4>
+                    <p>
+                        Aucun ordre de dispersion ou sommation préalable n'a été émis avant que le véhicule d'intervention bleu nuit ne monte partiellement sur le trottoir pour clouer la victime au bitume avant l'encadrement des effectifs.
+                    </p>
+                </div>
+
+                <h2>3. Arrestations arbitraires et peines de détention sommaires</h2>
+                <p>
+                    Une fois l'intimidation physique achevée, le dispositif se poursuit par l'enfermement extrajudiciaire. Des interpellations massives sans notification de droits ni procès-verbal d'audition légale sont infligées aux administrés.
+                </p>
+
+                <figure class="article-media">
+                    <img src="https://files.catbox.moe/kg7afj.png" alt="Déploiement massif de véhicules et rétention punitive arbitraire">
+                    <figcaption class="article-caption">
+                        <strong>Document 3 :</strong> Déploiement policier et notification d'incarcération punitive automatique en cas de rupture de contact. (Photo transmise à Robloxpart)
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Le dispositif d'entrave s'accompagne d'injonctions expéditives : toute tentative de soustraction à ces menottages arbitraires débouche automatiquement sur une peine de réclusion immédiate et sans comparution devant un juge. Les fourgons et véhicules blindés cadenassent l'espace pour empêcher tout témoin d'intervenir ou de filmer les violences en cours.
+                </p>
+
+                <p>
+                    Sollicitée de façon formelle par Robloxpart sur la responsabilité directe des officiers ayant ordonné ces manœuvres motorisées et ces tirs de taser, la direction locale de la Gendarmerie a opposé un silence complet. Notre rédaction poursuit le recueil de documents et de vidéos pour établir l'entière chaîne de commandement.
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <aside>
+        <div class="sidebar-widget alert-box" id="alerte">
+            <h3>Lanceurs d'alerte</h3>
+            <p>
+                Vous avez été victime ou témoin d’un choc par véhicule de patrouille, d’un tir de taser au sol ou d'un menottage illégal ?
+            </p>
+            <p style="margin-top: 10px; font-weight: bold; font-size: 13px;">
+                Signalement chiffré : contact@robloxpart.fr
+            </p>
+        </div>
+
+        <div class="sidebar-widget">
+            <div class="widget-title">Fil des investigations</div>
+            
+            <div class="feed-item">
+                <span class="feed-time">14h12</span>
+                <a href="#" class="feed-title">Strasbourg : Deux plaintes déposées contre la brigade motorisée pour mise en danger délibérée de la vie d'autrui.</a>
+            </div>
+
+            <div class="feed-item">
+                <span class="feed-time">11h45</span>
+                <a href="#" class="feed-title">Dotation Taser : multiplication d'usages abusifs contre des cibles au sol.</a>
+            </div>
+
+            <div class="feed-item">
+                <span class="feed-time">09h30</span>
+                <a href="#" class="feed-title">Détentions sommaires : l'absence totale de contrôle judiciaire pointée du doigt.</a>
+            </div>
+        </div>
+
+        <div class="sidebar-widget">
+            <div class="widget-title">Indépendance éditoriale</div>
+            <p style="font-size: 14px; color: #555;">
+                Robloxpart refuse tout financement institutionnel et publicitaire afin de garantir la liberté d'enquêter sur les dérives sécuritaires.
+            </p>
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div><strong>Robloxpart</strong> — Média d'investigation indépendant.</div>
+        <div>Édition 2026 • Tous droits réservés</div>
+    </div>
+</footer>
+
+</body>
+</html>
